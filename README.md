@@ -1,23 +1,52 @@
 # BlackPink Smart LightStick
-**Đồ Án: Hệ Thống Lightstick Đồng Bộ Theo Nhạc Qua Wi-Fi**
-Hệ thống sử dụng Server (Python/Flask) để phân tích âm thanh (Nhịp điệu và Cường độ) bằng librosa, sau đó gửi lệnh điều khiển đến nhiều Lightstick (Client) cùng lúc thông qua UDP Multicast trên mạng Wi-Fi.
-🌟 Tính Năng Nổi Bật
-Đồng bộ Thời gian thực: Đồng bộ 2 (hoặc N) lightstick với độ trễ (Jitter) cực thấp (< 5ms) qua UDP Multicast.
-Phân tích Nhạc Thông minh: Server phân tích tệp âm thanh để trích xuất cả Nhịp (Beat) và Cường độ (Intensity), giúp lightstick phản ứng chính xác theo năng lượng của bài hát.
-Giao diện Web UI: Giao diện điều khiển (Flask) cho phép chọn chế độ Tĩnh (Static), Nhấp nháy (Blink), hoặc Đồng bộ (Beat Sync) và tải tệp nhạc lên.
-Cài đặt Chuyên nghiệp: Tích hợp WiFiManager, cho phép người dùng cuối cài đặt Wi-Fi cho lightstick qua Portal (Cổng Cài Đặt) mà không cần nạp lại code.
-Firmware Ổn định (v12.11): Xây dựng trên kiến trúc Máy Trạng Thái (State Machine) 5-state (OFF, LOCAL, WIFI_CONNECTED, SYNC, SETUP) với logic "Fail-Fast" (thất bại nhanh 2s) và tự động kết nối lại (Auto-Reconnect).
-Hệ thống Log Phân tích: Giao thức 8-byte tùy chỉnh tích hợp Packet ID và hệ thống LOG,SENT/RECV cho phép đo lường và phân tích chính xác hiệu năng mạng (Mất gói, Jitter).
-🏛️ Kiến Trúc Hệ Thống
-Hệ thống bao gồm hai thành phần chính: Server (1) và Client (N).
-Server (Python):
-Sử dụng Flask để tạo Web UI.
-Sử dụng librosa để phân tích file nhạc (offline).
-Gửi các gói tin UDP 8-byte qua Multicast đến địa chỉ 239.1.1.1.
-Client (ESP32):
-Sử dụng WiFiManager để kết nối Wi-Fi.
-Lắng nghe (subscribe) tại địa chỉ Multicast 239.1.1.1.
-Hoạt động dựa trên Máy Trạng Thái (State Machine) 5-state.
-Điều khiển LED WS2812 (NeoPixel).
-Sơ Đồ Máy Trạng Thái (State Machine v12)
-Đây là sơ đồ logic mô tả 5 trạng thái hoạt động của firmware trên ESP32.
+## 💡 Đồ Án: Hệ thống Lightstick Thông Minh Đồng Bộ Qua Wi-Fi Dựa Trên Giao Thức UDP Và Điều Khiển Theo Nhạc
+> Đồ án thuộc khuôn khổ môn học Hệ Thống Nhúng Mạng Không Dây (NT131.Q11) & Phát triển ứng dụng trên thiết bị di động (NT118.Q14) - Trường Đại học Công nghệ Thông tin (UIT).
+
+## 🌟 Tính Năng Nổi Bật
+
+| Tính năng | Mô tả |
+|--------------|-----------|
+| ⚡ **Đồng bộ thời gian thực** | Đồng bộ nhiều lightstick với độ trễ cực thấp (< 5 ms) qua UDP Multicast |
+| 🎶 **Phân tích nhạc thông minh** | Phát hiện nhịp (Beat) và năng lượng (Intensity) trong bài hát bằng **librosa** |
+| 🌐 **Web UI điều khiển** | Giao diện Flask cho phép upload nhạc, chọn hiệu ứng (Static / Blink / Beat Sync) |
+| 📶 **Cài đặt Wi-Fi dễ dàng** | Tích hợp **WiFiManager** — cho phép người dùng kết nối Wi-Fi qua Portal mà không cần nạp lại firmware |
+| 🧠 **Firmware ổn định** | Xây dựng trên **State Machine 5 trạng thái**: OFF, LOCAL, WIFI_CONNECTED, SYNC, SETUP |
+| 📊 **Hệ thống Log & Packet Tracking** | Giao thức UDP tùy chỉnh (8 byte) có **Packet ID** để phân tích mất gói, độ trễ, và jitter |
+
+## 💎 Kiến Trúc Hệ Thống
+<p align="center">
+  <img width="853" height="1038" alt="Lightstick demo" src="https://github.com/user-attachments/assets/a0d4af75-ec92-495f-a3f0-b2f983c22fbf" />
+</p>
+
+Hệ thống bao gồm hai thành phần chính:
+1.  **Server (Python):**
+    - Sử dụng Flask để tạo Web UI
+    - Phân tích file nhạc bằng librosa
+    - Gửi các gói tin UDP 8-byte qua **Multicast** đến địa chỉ 239.1.1.1
+2.  **Client (ESP32):**
+    - Sử dụng WiFiManager để kết nối Wi-Fi
+    - Lắng nghe tại địa chỉ Multicast 239.1.1.1
+    - Hoạt động dựa trên Máy Trạng Thái 5-state
+    - Điều khiển LED WS2812 7 bits (NeoPixel)
+
+## 🛠️ Công Nghệ Sử Dụng
+
+- **Server:** Python, Flask, Librosa, NumPy
+- **Client:** C++/Arduino, ESP32 WROOM
+- **Thư viện Client:** WiFiManager, Adafruit_NeoPixel
+- **Giao thức:** Wi-Fi (IEEE 802.11), UDP Multicast
+
+## 📸 Video Demo
+[Demo Smart LightStick](https://drive.google.com/drive/folders/1MlZb2zqXdkc3Idzolo9LwRjRb0AOgoYt?usp=drive_link)
+
+## 🎓 Thành Viên Thực Hiện
+
+| MSSV     | Họ và Tên              | Email                  | Github                                          |
+|----------|------------------------|------------------------|-------------------------------------------------|
+| 23520168 | Đoàn Ngọc Minh Châu    | 23520168@gm.uit.edu.vn | [Minh Châu](https://github.com/23520168)        |
+| 23521040 | Lê Nhật Trinh Nguyên   | 23521040@gm.uit.edu.vn | [Trinh Nguyên](https://github.com/ovapil)       |
+
+---
+Đây chỉ là đồ án được thực hiện bởi những người hâm mộ nhóm nhạc BLACKPINK và phục vụ chủ yếu cho mục đích học tập, nghiên cứu. Dự án được lấy cảm hứng từ các công nghệ hiện có và không liên quan đến/được ủy quyền bởi BLACKPINK hay YG Entertainment.
+Xin cảm ơn dự án [lightstick của mattywausb](https://github.com/mattywausb/lightstick) đã cung cấp nguồn tham khảo và cảm hứng ban đầu.
+
