@@ -47,6 +47,6 @@ Hệ thống bao gồm hai thành phần chính:
 | 23521040 | Lê Nhật Trinh Nguyên   | 23521040@gm.uit.edu.vn | [Trinh Nguyên](https://github.com/ovapil)       |
 
 ---
-Đây chỉ là đồ án được thực hiện bởi những người hâm mộ nhóm nhạc BLACKPINK và phục vụ chủ yếu cho mục đích học tập, nghiên cứu. Dự án được lấy cảm hứng từ các công nghệ hiện có và không liên quan đến/được ủy quyền bởi BLACKPINK hay YG Entertainment.
+Đây chỉ là đồ án được thực hiện bởi những sinh viên hâm mộ nhóm nhạc BLACKPINK và phục vụ chủ yếu cho mục đích học tập, nghiên cứu. Dự án được lấy cảm hứng từ các công nghệ hiện có và không liên quan đến/được ủy quyền bởi BLACKPINK hay YG Entertainment.
 Xin cảm ơn dự án [lightstick của mattywausb](https://github.com/mattywausb/lightstick) đã cung cấp nguồn tham khảo và cảm hứng ban đầu.
 
