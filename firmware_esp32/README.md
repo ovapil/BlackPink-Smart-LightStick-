@@ -12,4 +12,4 @@
 ---
 
 ### 3. Luồng Cài Đặt Mạng (WiFiManager)
-![Luồng Cài Đặt Mạng](./assets/netword_flow.png)
+![Luồng Cài Đặt Mạng](./assets/network_flow.png)
