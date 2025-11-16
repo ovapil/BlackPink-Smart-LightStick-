@@ -1,8 +1,8 @@
 # BlackPink Smart LightStick
 ## 💡 Đồ Án: Hệ thống Lightstick Thông Minh Đồng Bộ Qua Wi-Fi Dựa Trên Giao Thức UDP Và Điều Khiển Theo Nhạc
 > Đồ án thuộc khuôn khổ môn học Hệ Thống Nhúng Mạng Không Dây (NT131.Q11) & Phát triển ứng dụng trên thiết bị di động (NT118.Q14) - Trường Đại học Công nghệ Thông tin (UIT).
-> 
-<img width="1920" height="1080" alt="Lightstick" src="https://github.com/user-attachments/assets/4a6fdbb2-72d5-4c4e-b7b3-40c90db32528" />
+
+<img width="1920" height="1080" alt="Lightstick" src="https://github.com/user-attachments/assets/f7f6e814-0456-4004-9c58-c2e4196045e9" />
 
 ## 🌟 Tính Năng Nổi Bật
 
