@@ -1,6 +1,7 @@
 ﻿# === File hệ thống chung (Windows, macOS) ===
 .DS_Store
 Thumbs.db
+/.vs/
 
 # Bỏ qua môi trường ảo, file cache, file env
 /web_server/venv/
