@@ -1,4 +1,4 @@
-# Firmware ESP3D (Lightstick Client)
+# Firmware ESP32 (Lightstick Client)
 Đây là mã nguồn firmware cho Client Lightstick (ESP32), được xây dựng trên nền tảng Arduino/PlatformIO.
 
 ### 1. Sơ đồ Lắp Mạch (Phần cứng)
